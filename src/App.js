@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { MessageList } from "./Components/MessageList";
 
 function App() {
+  // const text = "somebody once";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MessageList />
+    // <div>
+    //   <Message text={text} />
+    //   <form>
+    //     <Button variant="contained">Press</Button>
+    //     <TextField placeholder="Enter a message" label="Message" />
+    //   </form>
+    //   <MessageList />
+    // </div>
   );
 }
 
