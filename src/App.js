@@ -1,10 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Message } from "./Message.jsx";
+import { MessageList } from "./Components/MessageList";
 
 function App() {
-  const text = "somebody once";
-  return <Message text={text} />;
+  // const text = "somebody once";
+  return (
+    <MessageList />
+    // <div>
+    //   <Message text={text} />
+    //   <form>
+    //     <Button variant="contained">Press</Button>
+    //     <TextField placeholder="Enter a message" label="Message" />
+    //   </form>
+    //   <MessageList />
+    // </div>
+  );
 }
 
 export default App;
