@@ -1,13 +1,8 @@
 import React, { useCallback, useRef, useState, useEffect } from "react";
 import faker from "faker";
 import { Button, TextField } from "@mui/material";
-import { Message } from "../Message.js";
-
-// const initMess = [
-//   { author: "man", text: "mess1", id: faker.datatype.uuid() },
-//   { author: "man", text: "mess2", id: faker.datatype.uuid() },
-//   { author: "man", text: "mess3", id: faker.datatype.uuid() },
-// ];
+import "./MessageList.css";
+import { Message } from "../../Message.jsx";
 
 export const MessageList = () => {
   const [messages, setMessages] = useState([]);
@@ -16,13 +11,20 @@ export const MessageList = () => {
 
   useEffect(() => {
     if (messages[messages.length - 1]?.author === "man") {
-      setTimeout(() => {
+      let timer = setTimeout(() => {
         setMessages((prevMessages) => [
           ...prevMessages,
-          { text: "Hello", author: "bot", id: faker.datatype.uuid() },
+          {
+            text: "Hello from React bot",
+            author: "bot",
+            id: faker.datatype.uuid(),
+          },
         ]);
         inputRef.current.focus();
       }, 1500);
+      return () => {
+        clearTimeout(timer);
+      };
     }
   }, [messages]);
 
@@ -39,18 +41,14 @@ export const MessageList = () => {
 
     setValue("");
     inputRef.current.focus();
-    console.log(messages);
   };
 
-  const handleChange = useCallback(
-    (event) => {
-      setValue(event.target.value);
-    },
-    [messages]
-  );
+  const handleChange = useCallback((event) => {
+    setValue(event.target.value);
+  }, []);
 
   return (
-    <div>
+    <div className="message_list">
       {messages.map((message) => (
         <Message key={message.id} text={message.text} id={message.id} />
       ))}
@@ -62,8 +60,11 @@ export const MessageList = () => {
           inputRef={inputRef}
           value={value}
           onChange={handleChange}
+          autoFocus
         />
-        <Button variant="contained">Press</Button>
+        <Button type="submit" variant="contained">
+          Press
+        </Button>
       </form>
     </div>
   );
