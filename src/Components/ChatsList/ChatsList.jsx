@@ -9,7 +9,7 @@ export const ChatsList = () => {
 
   return <div className="chatList">
       {AllChatList.map((chat) => (
-          <div>{chat.name}</div>
+          <div key={chat.id}>{chat.name}</div>
       ))}
   </div>;
 };

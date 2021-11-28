@@ -1,12 +1,11 @@
 import "./App.css";
-import { MessageList } from "./Components/MessageList/MessageList.jsx";
-import { ChatsList } from "./Components/ChatsList/ChatsList.jsx";
+import { Router } from "./Components/Router/Router.jsx";
 
 function App() {
   return (
     <div className="App">
-      <ChatsList />
-      <MessageList />
+      <Router />
+      
     </div>
   );
 }
